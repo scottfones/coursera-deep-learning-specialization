@@ -49,3 +49,24 @@ Training Example
         - $Y∈ℝ^{1×m}$
         - `Y.shape = (1, m)`
 
+### Logistic Regression 
+
+Definition 
+
+- Given $x$, we want $\hat{y}=P(y=1 | x)$
+  - $x∈ℜ^{n_x}$
+  - $0 ≤ \hat{y} ≤ 1$
+
+Regression Parameters
+
+- $w∈ℜ^{n_x}$
+- $b∈ℜ$
+
+Output 
+
+- $\hat{y} = σ(w^Tx + b) = σ(z)$
+  - where 
+    - $w^Tx + b = z$ 
+    - $σ$ is the sigmoid function
+      - $σ(z) = (1 + e^{-z})^{-1}$
+      - $0 ≤ σ(z) ≤ 1$ and $σ(0) = 0.5$
