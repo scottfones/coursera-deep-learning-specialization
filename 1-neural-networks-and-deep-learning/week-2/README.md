@@ -105,3 +105,25 @@ Convention
 - Loss function applies only to a specific training example 
 - Cost function is the cost of the parameters 
   - Looking for parameters $w$ and $b$ that minimize the cost function
+
+### Gradient Descent Introduction
+
+Motivation
+
+- We want to find parameters $w$ and $b$ that minimize $J(w,b)$
+  - As $J(w,b)$ is convex, we seek the minimum value on the surface of $J$
+
+Method
+
+- Assuming we are optimizing on $w$, we repeatedly update $w$ such that 
+  - $w := w - α\frac{d}{dw}J(w)$
+    - where 
+      - $α$ is the learning rate
+      - $\frac{d}{dw}J(w)$ is the change to make on $w$
+  - Code Convention 
+    - `w = w - a*dw`
+- Optimizing $J(w,b)$
+  - $w := w - α\frac{δ}{δw}J(w,b)$
+  - $b := b - α\frac{δ}{δb}J(w,b)$
+
+
