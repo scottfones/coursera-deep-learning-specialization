@@ -153,4 +153,89 @@ Code Convention
       - `dvar`
         - represents dFOV/dvar
 
+### Logistic Regression Gradient Descent 
+
+Equation Recap 
+
+- $z = w^Tx + b$
+- $\hat{y} = a = σ(z)$
+- $ℒ(a,y) = -(yloga + (1-y)log(1-a))$
+
+### Logistic Regression Gradient Descent on $m$ Examples
+
+Equation Recap 
+
+- Cost Function 
+  - $J(w,b) = \frac{1}{m} ∑ℒ(a^i,y)$
+  - $a^i = \hat{y}^i = σ(z^i) = σ(w^Tx^i + b)$
+
+Initialize
+  
+- $J=0$
+- $dw_1=0$
+- $dw_2=0$
+- $db=0$
+
+Iterate over $m$ training examples
+
+- For $i=1$ to $m$
+  - $z^i = w^Tx^i + b$
+  - $a^i = σ(z^i)$
+  - $J += -[y^iloga^i + (1-y^i)log(1-a^i)]$
+  - $dz^i = a^i - y^i$
+  - $dw_1 += x{_1}{^i}dz^i$
+  - $dw_2 += x{_2}{^i}dz^i$
+    - Two features $w_1$ and $w_2$
+  - $db += dz^i$
+
+Divide by $m$ 
+
+- $J /= m$
+- $dw_1 /= m$
+- $dw_2 /= m$
+- $db /= m$
+
+Update features to complete one step of gradient descent
+
+- $w_1 := w_1 - αdw_1$
+- $w_2 := w_2 - αdw_2$
+- $b := b - αdb$
+
+Efficiency Note 
+
+- This implementation would be incredibly inefficient 
+- We need to vectorize the implementation
+
+### Vectorization Introduction 
+
+Vectorization 
+
+- The act of removing explicit for loops in  your code 
+
+Non-Vectorized
+
+```python 
+z = 0 
+for i in range(n-x):
+  z += w[i] * x[i]
+z += b
+```
+
+Vectorized 
+
+```python 
+z = np.dot(w,x) + b
+```
+
+### Vectorizing Logistic Regression 
+
+Matrix Variables 
+
+- Training Matrix 
+  - We defined the training matrix $X∈ℜ^{n_x×m}$ to consist of columns for each training example 
+- $Z$ Matrix 
+  - We can construct a matrix of $Z∈ℜ^{1×m}$ such that $Z=w^TX + B$, where $B∈ℜ^{1×m}$ containing the bias value 
+  - Python 
+    - `Z = np.dot(w.T, X) + b`
+      - N.B. b is a 1-by-1 and accommodated via broadcasting
 
