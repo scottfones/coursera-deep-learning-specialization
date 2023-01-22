@@ -280,4 +280,30 @@ w = w - alpha * dw
 b = b - alpha
 ```
 
+### Broadcasting in Python 
 
+Example
+
+- Consider a table with the calories from Carbs, Protein, and Fat in 100g of different foods
+
+|         | Apples | Beef  | Eggs | Potatoes |
+|---------|--------|-------|------|----------|
+| Carb    | 56.0   | 0.0   | 4.4  | 68.0     |
+| Protein | 1.2    | 104.0 | 52.0 | 8.0      |
+| Fat     | 1.8    | 135.0 | 99.0 | 0.9      |
+
+- We wish to calculate the percentage of calories from each type
+- Solution
+  - Let the table be a $3×4$ matrix, `A`
+
+```python 
+A = np.array([[56.0, 0.0, 4.4, 68.0], [1.2, 104.0, 52.0, 8.0], [1.8, 135.0, 99.0, 0.9]])
+cals = A.sum(axis=0)
+percents = 100 * A / cals
+```
+
+Broadcasting 
+
+- Given an $m×n$ matrix, using $+,-,*,/$ on a $1×n$ matrix, the result will be $m×n$
+- Given an $m×n$ matrix, using $+,-,*,/$ on a $m×1$ matrix, the result will be $m×n$
+- Given a vector, using $+,-,*,/$ on a scalar, the result will be the same shape as the vector
