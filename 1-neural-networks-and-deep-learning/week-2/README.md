@@ -27,7 +27,7 @@ Training Example
 
 - A single training example is represented by a pair, $(x,y)$, where $x∈ℝ^{n_x}, y∈{0,1}$
 - A set of $m$ training examples:
-  - $(x^1,y^1), (x^2,y^2), ..., (x^m,y^m),$
+  - $(x^1,y^1), (x^2,y^2), ..., (x^m,y^m)$
   - Lowercase $m$ will be used to denote the number of training examples 
     - $m = m_{train}$
   - $m_{test}$ denotes the number of test examples
@@ -70,3 +70,38 @@ Output
     - $σ$ is the sigmoid function
       - $σ(z) = (1 + e^{-z})^{-1}$
       - $0 ≤ σ(z) ≤ 1$ and $σ(0) = 0.5$
+
+### Logistic Regression Cost function
+
+Problem 
+
+- Given a training set, $\{(x^1, y^1), ..., (x^m, y^m)\}$, we want to find $\hat{y}^i ≈ y^i$
+  - We want to find values for $w$ and $b$ such that our predictions, $\hat{y}^i$, will be close to our ground truth labels, $y^i$
+
+Loss (Error) Function 
+
+- We seek a measure for how good our output $\hat{y}$ is when the true label is $y$
+  - Avoid L2-norm (squared error) as the result is non-convex for logistic regression and this interferes with gradient descent
+- Definition 
+  - $ℒ(\hat{y}, y) = -(ylog\hat{y} + (1-y)log(1-\hat{y}))$
+- Intuition 
+  - We want to minimize the error. Consider the boundary conditions,
+    - If $y=1$: $ℒ(\hat{y}, y) = -log\hat{y}$
+      - We want $-log\hat{y}$ to be as small as possible
+        - Requires $log\hat{y}$ be large ∴ $\hat{y}$ must be large
+    - If $y=0$: $ℒ(\hat{y}, y) = -log(1-\hat{y})$
+      - We want $-log(1-\hat{y})$ to be as small as possible
+        - Requires $log(1-\hat{y})$ be large ∴ $\hat{y}$ must be small
+
+Cost Function 
+
+- Measures how well we're doing over the entire training set 
+- Definition 
+  - $J(w,b) = \frac{1}{m} ∑ℒ(\hat{y}^i, y^i)$
+  - $J(w,b) = -frac{1}{m} ∑[y^ilog\hat{y}^i + (1-y^i)log(1-\hat{y}^i)]$
+
+Convention
+
+- Loss function applies only to a specific training example 
+- Cost function is the cost of the parameters 
+  - Looking for parameters $w$ and $b$ that minimize the cost function
