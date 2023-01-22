@@ -307,3 +307,9 @@ Broadcasting
 - Given an $m×n$ matrix, using $+,-,*,/$ on a $1×n$ matrix, the result will be $m×n$
 - Given an $m×n$ matrix, using $+,-,*,/$ on a $m×1$ matrix, the result will be $m×n$
 - Given a vector, using $+,-,*,/$ on a scalar, the result will be the same shape as the vector
+
+### Notes on Python and Numpy Vectors 
+
+### Tour of IPython Notebooks on Coursera
+
+### Explanation of Logistic Regression Cost Function
