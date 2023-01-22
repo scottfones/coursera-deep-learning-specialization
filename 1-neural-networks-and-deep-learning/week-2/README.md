@@ -126,4 +126,31 @@ Method
   - $w := w - α\frac{δ}{δw}J(w,b)$
   - $b := b - α\frac{δ}{δb}J(w,b)$
 
+### Computation Graph Introduction 
+
+Motivation 
+
+- Suppose we want to compute a function $J(a,b,c) = 3(a+bc)$
+  - This can be broken down in into smaller equations
+    - $u = bc$
+    - $v = a + u$
+    - $J = 3v$
+- A computation graph illustrates the manner in which we start with the input variables, $a,b,c$, and progress to the answer
+
+Computation Graph 
+
+- Illustrates the left-to-right (input-to-output) relationships necessary to compute a value 
+  - One step of forward propagation on a computation graph yields a cost calculation
+  - One step of backward propagation on a computation graph yields a derivative of the final output variable 
+
+### Derivatives via Computation Graphs 
+
+Code Convention 
+
+- Typically there is a final output variable (FOV) that we care about (want to optimize)
+  - We will need to calculate the derivative of the FOV wrt other variables 
+    - Python 
+      - `dvar`
+        - represents dFOV/dvar
+
 
