@@ -238,4 +238,46 @@ Matrix Variables
   - Python 
     - `Z = np.dot(w.T, X) + b`
       - N.B. b is a 1-by-1 and accommodated via broadcasting
+- Sigmoid Output Matrix $A$
+  - We construct a matrix $A∈ℜ^{1×m}$ to contain the results of applying the sigmoid function to $Z$
+- Ground Truth Matrix $Y$
+  - We construct a matrix $Y∈ℜ^{1×m}$ to contain the labeled, ground truth data correlating to $y^1, ..., y^m$
+
+### Vectorizing Logistic Regressions Gradient Output 
+
+Derivative Matrix Variables 
+
+- $dZ$ Matrix 
+  - We define a matrix containing the $dz^1, ..., dz^m$ scalar values such that $dZ∈ℜ^{1×m}$
+  - We can compute $dZ$ as $dZ=A-Y$
+- $dw$ Vector 
+  - Constructed as $dw = \frac{1}{m}XdZ^T$
+  - Python 
+    - `dw = np.dot(X, dZ.T) / m`
+    - `dw = X @ dZ.T / m`
+
+Vectorized Scalar Variables 
+
+- $db$
+  - As we have constructed $dZ$, we can use its sum in the calculation of $db$
+  - Python 
+    - `db = np.sum(dZ) / m`
+
+### Vectorizing Logistic Regression Complete 
+
+One Iteration of Gradient Descent 
+
+- Python 
+
+```python 
+Z = np.dot(w.T, X) + b 
+A = sigm(Z)
+dZ = A - Y
+dw = np.dot(X, dZ.T) / m 
+db = np.sum(dZ) / m 
+
+w = w - alpha * dw 
+b = b - alpha
+```
+
 
