@@ -98,7 +98,7 @@ Cost Function
 - Measures how well we're doing over the entire training set 
 - Definition 
   - $J(w,b) = \frac{1}{m} ∑ℒ(\hat{y}^i, y^i)$
-  - $J(w,b) = -frac{1}{m} ∑[y^ilog\hat{y}^i + (1-y^i)log(1-\hat{y}^i)]$
+  - $J(w,b) = -\frac{1}{m} ∑[y^ilog\hat{y}^i + (1-y^i)log(1-\hat{y}^i)]$
 
 Convention
 
