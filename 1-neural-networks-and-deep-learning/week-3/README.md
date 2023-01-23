@@ -35,21 +35,9 @@ Notation
     subgraph OUTPUT 
       o1 
     end 
-    x1 --> h1
-    x1 --> h2
-    x1 --> h3
-    x1 --> h4
-    x2 --> h1
-    x2 --> h2
-    x2 --> h3
-    x2 --> h4
-    x3 --> h1
-    x3 --> h2
-    x3 --> h3
-    x3 --> h4
-    h1 --> o1
-    h2 --> o1
-    h3 --> o1
-    h4 --> o1
+    x1 --> h1 & h2 & h3 & h4
+    x2 --> h1 & h2 & h3 & h4
+    x3 --> h1 & h2 & h3 & h4
+    h1 & h2 & h3 & h4 --> o1
     o1 --> yhat
 ```
