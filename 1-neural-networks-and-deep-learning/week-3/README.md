@@ -20,7 +20,7 @@ Notation
 ### Neural Network Representation
 
 ```mermaid
-  flowchart LR 
+  graph LR 
     subgraph INPUT
       x1 
       x2 
