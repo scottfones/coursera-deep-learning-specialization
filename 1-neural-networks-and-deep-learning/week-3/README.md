@@ -20,7 +20,8 @@ Notation
 ### Neural Network Representation
 
 ```mermaid
-  graph LR 
+  %%{ init: { 'flowchart': { 'curve': 'linear' } } }%%
+  flowchart LR 
     subgraph INPUT
       x1 
       x2 
