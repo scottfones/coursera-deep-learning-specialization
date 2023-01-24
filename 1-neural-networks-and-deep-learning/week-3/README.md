@@ -61,7 +61,7 @@ Two Layer Neural Network
 Output Notation 
 
 - Given the same two-layered neural network as before, we seek to vectorize across training examples 
-  - $a^{[2](i)}$ denotes the output of layer 2, $\hat{y}$, for training example $i$
+  - $a^{\[2](i)}$ denotes the output of layer 2, $\hat{y}$, for training example $i$
 
 Training Example Matrix 
 
@@ -101,3 +101,4 @@ Vectorized Equations
 - $Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}$
 - $A^{[2]} = σ(Z^{[2]})$
 
+### Vectorized Implementation Explanation
