@@ -102,3 +102,40 @@ Vectorized Equations
 - $A^{[2]} = σ(Z^{[2]})$
 
 ### Vectorized Implementation Explanation
+
+### Activation Functions 
+
+Hyperbolic Tangent (tanh)
+
+- Equation 
+  - $a = tanh(z) = (e^z - e^{-z}) / (e^z + e^{-z})$
+- A non-linear activation function with range -1..1 and $tanh(0)=0$
+  - Helps to zero the function
+- A scaled, shifted version of sigmoid
+- Always better than sigmoid except for the output layer in binary classification 
+  - You want sigmoid in this case to restrict the output to 0..1
+- Downside
+  - If $z$ is very large or small, the slope is close to $0$ which slows down learning
+
+Rectified Linear Unit (ReLU)
+
+- Equation 
+  - $a = max(0, z)$
+  - Note the derivative
+    - 0 if negative, 1 if positive
+    - Not well defined at 0, but 0 or 1 works well
+
+Leaky Rectified Linear Unit (Leaky ReLU)
+
+- Equation 
+  - $a = max(0.01z, z)$
+    - Adds a non-zero slope for negative values
+
+Rules of Thumb
+
+- Binary Classification 
+  - If output is 0 or 1, use sigmoid 
+- ReLU or Leaky ReLU
+  - Use in all other cases
+
+
