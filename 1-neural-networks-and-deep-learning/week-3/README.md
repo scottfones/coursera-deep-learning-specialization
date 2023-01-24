@@ -138,4 +138,16 @@ Rules of Thumb
 - ReLU or Leaky ReLU
   - Use in all other cases
 
+### Purpose of Non-Linear Activation Functions
+
+Linear Activation 
+
+- Identity Activation 
+- $g(z)=z$
+- The output of one layer is a linear function of the input
+  - Regardless of the number of layers, the network is essentially calculating an activation function and not learning
+  - If the output layer switches to sigmoid, the entire network is only as good as the output layer
+- Potential advantage 
+  - If you're seeking a real valued output, the output layer can use a linear activation function 
+    - All other layers should be using ReLU
 
