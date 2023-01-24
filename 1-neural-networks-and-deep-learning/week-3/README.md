@@ -151,3 +151,11 @@ Linear Activation
   - If you're seeking a real valued output, the output layer can use a linear activation function 
     - All other layers should be using ReLU
 
+### Derivatives of Activation Functions 
+
+Sigmoid 
+
+- Equation 
+  - $g(z) = (1 + e^{-z})^{-1}$
+- Derivative 
+  - $\frac{d}{dz}g(z) = (1+e^{-z})^{-1} (1 - (1+e^{-z})^{-1})$
