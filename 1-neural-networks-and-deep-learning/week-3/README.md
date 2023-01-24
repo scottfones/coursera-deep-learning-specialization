@@ -40,4 +40,64 @@ Diagram
   - $a^{[2]}$
   - $\hat{y} = a^{[2]}$
 
+### Computing a Neural Network's Output 
+
+Two Layer Neural Network 
+
+- Given input $x$
+  - $z^{[1]} = W^{[1]}x + b^{[1]}$
+    - Note $W^{[1]}$ is an $m×n$ matrix where
+      - $m$ is the number of nodes in the layer 
+      - $n$ the number of inputs
+      - Each row of $W$ represents the corresponding $w^T$
+  - $a^{[1]} = σ(z^{[1]})$
+    - Note $a^{[1]}$ is an $m×1$ matrix where
+      - $a$ is the activation output for each node
+  - $z^{[2]} = W^{[2]}a^{[1]} + b^{[2]}$
+  - $a^{[2]} = σ(z^{[2]})$
+
+### Vectorizing Across Multiple Training Examples
+
+Output Notation 
+
+- Given the same two-layered neural network as before, we seek to vectorize across training examples 
+  - $a^{[2](i)}$ denotes the output of layer 2, $\hat{y}$, for training example $i$
+
+Training Example Matrix 
+
+- Remember, we've constructed a matrix, $X∈ℜ^{n_x×m}$, where each column is an input vector 
+
+Layer Matrices 
+
+- Linear Result Matrix 
+  - We construct a matrix $Z^{[1]}∈ℜ^{(n×m)}$ 
+    - where 
+      - $n$ is the number of nodes in the layer
+      - $m$ is the number of training examples
+- Weight Matrix 
+  - We have $W^{[1]}∈ℜ^{(n×n_x)}$ 
+    - where 
+      - $n$ is the number of nodes in the layer
+      - $n_x$ is the number of inputs
+- Input Matrix
+  - We have $X^{[1]}∈ℜ^{(n_x×m)}$ 
+    - where 
+      - $n_x$ is the number of inputs
+      - $m$ is the number of training examples
+- Bias Vector
+  - We have $b^{[1]}∈ℜ^{(n×1)}$ 
+    - where
+      - $n$ is the number of nodes in the layer
+- Activation Matrix
+  - We have $A^{[1]}∈ℜ^{(n×m)}$ 
+    - where 
+      - $n$ is the number of nodes in the layer 
+      - $m$ is the number of training examples
+
+Vectorized Equations
+
+- $Z^{[1]} = W^{[1]}X + b^{[1]}$
+- $A^{[1]} = σ(Z^{[1]})$
+- $Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}$
+- $A^{[2]} = σ(Z^{[2]})$
 
