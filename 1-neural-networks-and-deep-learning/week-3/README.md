@@ -182,3 +182,60 @@ Leaky ReLU
   - $g(z) = max(0.01z,z)$
 - Derivative 
   - $\frac{d}{dz}g(z) = 0.01 or 1$
+
+  ### Gradient Descent for Neural Networks 
+
+  Parameters
+
+  - For a two-layer (one hidden layer) neural network 
+  - $n_x = n^{[0]}$
+  - $n^{[1]}$
+  - $n^{[2]} = 1$
+  - $W^{[1]}$
+    - $(n^{[1]}, n^{[0]})$
+  - $b^{[1]}$
+    - $(n^{[1]}, 1)$
+  - $W^{[2]}$
+    - $(n^{[2]}, n^{[1]})$
+  - $b^{[2]}$
+    - $(n^{[2]}, 1)$
+
+  Cost Function 
+
+  - $J(W^{[1]}, b^{[1]}, W^{[2]}, b^{[2]}) = \frac{1}{m} ∑ℒ(\hat{y}, y)$
+    - $\hat{y} = a^{[2]}$
+
+  Gradient Descent 
+
+- Repeat until convergence
+  - Compute $\hat{y}$
+  - $dW^{[1]} = \frac{d}{dW^{[1]}}J$
+  - $db^{[1]} = \frac{d}{db^{[1]}}J$
+  - $dW^{[2]} = \frac{d}{dW^{[1]}}J$
+  - $db^{[2]} = \frac{d}{db^{[1]}}J$
+  - $W^{[1]} = W^{[1]} - αdW^{[1]}$
+  - $b^{[1]} = b^{[1]} - αdb^{[1]}$
+  - $W^{[2]} = W^{[2]} - αdW^{[2]}$
+  - $b^{[2]} = b^{[2]} - αdb^{[2]}$
+
+Formulas for computing derivatives 
+
+- Forward Propagation 
+  - $Z^{[1]} = W^{[1]}X + b^{[1]}$
+  - $A^{[1]} = g^{[1]}(Z^{[1]})$
+  - $Z^{[2]} = W^{[1]}X + b^{[1]}$
+  - $A^{[2]} = g^{[2]}(Z^{[2}) = σ(Z^{[2})$
+    - Output layer will use sigmoid activation function
+- Back Propagation 
+  - $Y = [y^{(1) ... y^{(m)}$
+    - Ground truths
+  - $dZ^{[2]} = A^{[2]} - Y$ 
+  - $dW^{[2]} = \frac{1}{m} dZ^{[2]}A^{[1]T}$
+  - $db^{[2]} = \frac{1}{m} np.sum(dZ^{[2]}, axis=1, keepdims=True)$
+    - keepdims prevents a rank 1 vector as output
+  - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}'(Z^{[1]})$ 
+    - $*$ is an elementwise product
+      - On either side is an $(n^{[1]} × m)$ matrix
+  - $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^T}$
+  - $db^{[1]} = \frac{1}{m} np.sum(dZ^{[1]}, axis=1, keepdims=True)$
+    - $(n^{[1]} × 1)$ matrix
