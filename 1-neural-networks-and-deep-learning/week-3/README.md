@@ -159,3 +159,26 @@ Sigmoid
   - $g(z) = (1 + e^{-z})^{-1}$
 - Derivative 
   - $\frac{d}{dz}g(z) = (1+e^{-z})^{-1} (1 - (1+e^{-z})^{-1})$
+  - $\frac{d}{dz}g(z) = g(z) (1 - g(z))$
+
+Tanh 
+
+- Equation 
+  - $g(z) = tanh(z)$
+- Derivative 
+  - $\frac{d}{dz}g(z) = 1 - (tanh(z))^2$
+  - $\frac{d}{dz}g(z) = 1 - g(z)^2$
+- Note 
+  - If $|z| ≥ 10$ then $g'(z)=0$ 
+
+ReLU 
+- Equation 
+  - $g(z) = max(0,z)$
+- Derivative 
+  - $\frac{d}{dz}g(z) = 0 or 1$
+
+Leaky ReLU 
+- Equation 
+  - $g(z) = max(0.01z,z)$
+- Derivative 
+  - $\frac{d}{dz}g(z) = 0.01 or 1$
