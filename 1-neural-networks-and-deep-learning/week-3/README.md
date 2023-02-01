@@ -227,13 +227,13 @@ Formulas for computing derivatives
   - $A^{[2]} = g^{[2]}(Z^{[2}) = σ(Z^{[2})$
     - Output layer will use sigmoid activation function
 - Back Propagation 
-  - $Y = [y^{(1) ... y^{(m)}$
+  - $Y = [y^{(1)} ... y^{(m)}$
     - Ground truths
   - $dZ^{[2]} = A^{[2]} - Y$ 
   - $dW^{[2]} = \frac{1}{m} dZ^{[2]}A^{[1]T}$
   - $db^{[2]} = \frac{1}{m} np.sum(dZ^{[2]}, axis=1, keepdims=True)$
     - keepdims prevents a rank 1 vector as output
-  - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}'(Z^{[1]})$ 
+  - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}' (Z^{[1]})$ 
     - $*$ is an elementwise product
       - On either side is an $(n^{[1]} × m)$ matrix
   - $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^T}$
