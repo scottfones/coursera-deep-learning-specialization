@@ -315,3 +315,33 @@ Vectorized Implementation
   - $*$ is an elementwise product 
 - $dW^{[1]} = dZ^{[1]}X^T / m$
 - $db^{[1]} = \frac{1}{m} np.sum(dZ^{[1]}, axis=1, keepdims=True)$
+
+## Random Initialization
+
+```mermaid
+  flowchart LR 
+    x1 --> a11 & a12
+    x2 --> a11 & a12
+    a11("a[1],1") --> a21
+    a12("a[1],2") --> a21
+    a21("a[2],1") --> y("y_hat")
+```
+
+Weight Initialization 
+
+- Initialization to zero is ok for logistic regression 
+- Neural networks should use random initialization values
+  - Bias values can be zeroes 
+  - Hidden Layers 
+     - The hidden units calculate to the same values 
+     - The backpropagation will influence them equally 
+     - By induction, all hidden units in a layer will be equivalent
+       - Hidden units should be initialized with random values 
+         - $W^{[1]}=$`np.random.randn((2,2)) * 0.01`
+           - Use small random values as larger values can lead to large values in the activation function
+             - Large values in the activation function can slow learning
+         - $b^{[1]}=$`np.zero((2,1))`
+         - $W^{[2]}=$`np.random.randn((2,2)) * 0.01`
+         - $b^{[2]}=$`np.zero((2,1))`
+
+
