@@ -273,12 +273,14 @@ Loss
 ```mermaid
   flowchart LR 
     x("x") --> id1
-    w("W[1]") --> id1
-    b("b[1]") --> id1 
+    w1("W[1]") --> id1
+    b1("b[1]") --> id1 
     id1("z[1] = W[1] x + b[1]")
     id2("a[1] = σ(z[1])")
     id1 --> id2
     id3("z[2] = W[2] a[1] + b[2]")
+    w2("W[2]") --> id3
+    b2("b[2]") --> id3 
     id2 --> id3
     id4("a[2] = σ(z[2])")
     id3 --> id4
