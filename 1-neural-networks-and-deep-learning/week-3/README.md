@@ -239,3 +239,28 @@ Formulas for computing derivatives
   - $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^T}$
   - $db^{[1]} = \frac{1}{m} np.sum(dZ^{[1]}, axis=1, keepdims=True)$
     - $(n^{[1]} × 1)$ matrix
+
+## Backpropagation Intuition 
+
+Logistic Regression:
+
+```mermaid
+  flowchart LR 
+    X --> id1
+    W --> id1
+    b --> id1 
+    id1(Z = W.T X + b)
+    id2(a = σ(Z))
+    id1 --> id2
+    id3(ℒ(a,y))
+    id2 --> id3
+```
+
+Equations 
+
+- $da^{[2]}$
+- $dZ^{[2]} = a^{[2]} - y$
+- $dW^{[2]} = dZ^{[2]}a^{[1]T}$
+- $db^{[2]} = dZ^{[2]}a^{[1]T}$
+- $dz^{[1]} = W^{[2]T}dz^{[2]} * g^{[1]'}(z^{[1]})$
+
