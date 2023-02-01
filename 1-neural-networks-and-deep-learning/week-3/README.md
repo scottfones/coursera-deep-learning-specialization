@@ -242,25 +242,46 @@ Formulas for computing derivatives
 
 ## Backpropagation Intuition 
 
-Logistic Regression:
+### Logistic Regression:
 
 ```mermaid
   flowchart LR 
-    X --> id1
-    W --> id1
+    x --> id1
+    w --> id1
     b --> id1 
-    id1(Z = W.T X + b)
-    id2("a = σ(Z)")
+    id1(z = w.T x + b)
+    id2("a = σ(z)")
     id1 --> id2
     id3("ℒ(a,y)")
     id2 --> id3
 ```
 
-Equations 
+Loss 
 
-- $da^{[2]}$
-- $dZ^{[2]} = a^{[2]} - y$
-- $dW^{[2]} = dZ^{[2]}a^{[1]T}$
-- $db^{[2]} = dZ^{[2]}a^{[1]T}$
-- $dz^{[1]} = W^{[2]T}dz^{[2]} * g^{[1]'}(z^{[1]})$
+- $ℒ(a,y) = -yloga -(1-y)log(1-a)$
+- $da$
+  - $da = \frac{d}{da}ℒ(a,y) = - \frac{y}{a} +  \frac{1-y}{1-a}$
+- $dz$
+  - $dz = \frac{dℒ}{dz} = \frac{dℒ}{da} \frac{da}{dz}= da * g'(Z)$ 
+- $dw$
+  - $dw = \frac{dℒ}{dw} = dz * x$
+- $db$
+  - $db = \frac{dℒ}{db} = dz$
 
+### Two-Layer Neural Network
+
+```mermaid
+  flowchart LR 
+    x("x") --> id1
+    w("W[1]") --> id1
+    b("b[1]") --> id1 
+    id1(z[1] = W[1] x + b[1])
+    id2("a[1] = σ(z[1])")
+    id1 --> id2
+    id3(z[2] = W[2] a[1] + b[2])
+    id2 --> id3
+    id4("a[2] = σ(z[2])")
+    id3 --> id4
+    id5("ℒ(a[2],y)")
+    id4 --> id5
+```
