@@ -256,9 +256,12 @@ Formulas for computing derivatives
     id2 --> id3
 ```
 
-Loss 
+Loss
 
 - $ℒ(a,y) = -yloga -(1-y)log(1-a)$
+
+Backpropagation Derivatives
+
 - $da$
   - $da = \frac{d}{da}ℒ(a,y) = - \frac{y}{a} +  \frac{1-y}{1-a}$
 - $dz$
@@ -287,3 +290,28 @@ Loss
     id5("ℒ(a[2],y)")
     id4 --> id5
 ```
+
+Backpropagation Derivatives 
+
+- Second Layer
+  - $dz^{[2]} = a^{[2]} - y$
+  - $dW^{[2]} = dz^{[2]} a^{[1]}{'}$
+  - $db^{[2]} = dz^{[2]}$
+- First Layer 
+  - $dz^{[1]} = W^{[2]}.T dz^{[2]} * g^{[1]}{'} (z^{[1]})$ 
+    - $*$ is an elementwise product 
+    - Dimensional Analysis 
+      - $(n^{[1]},1) =(n^{[1]}, n^{[2]})(n^{[2]}, 1) * (n^{[1]}, 1)$
+      - If things aren't working out in practice, make sure the dimensions are adding up
+  - $dW^{[1]} = dz^{[1]}x.T$
+  - $db^{[1]} = dz^{[1]}$
+
+Vectorized Implementation 
+
+- $dZ^{[2]} = A^{[2]} - Y$
+- $dW^{[2]} = dZ^{[2]}A^{[1]T} / m$
+- $db^{[2]} = np.sum(dZ^{[2]}, axis=1, keepdims=True) / m$
+- $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}{'}(Z^{[1]})$
+  - $*$ is an elementwise product 
+- $dW^{[1]} = dZ^{[1]}X^T / m$
+- $db^{[1]} = np.sum(dZ^{[1]}, axis=1, keepdims=True) / m$
