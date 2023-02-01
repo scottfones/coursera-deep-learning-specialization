@@ -250,9 +250,9 @@ Logistic Regression:
     W --> id1
     b --> id1 
     id1(Z = W.T X + b)
-    id2(a = sigma(Z))
+    id2("a = σ(Z)")
     id1 --> id2
-    id3(L(a,y))
+    id3("ℒ(a,y)")
     id2 --> id3
 ```
 
