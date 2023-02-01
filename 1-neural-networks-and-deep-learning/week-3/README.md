@@ -310,8 +310,8 @@ Vectorized Implementation
 
 - $dZ^{[2]} = A^{[2]} - Y$
 - $dW^{[2]} = dZ^{[2]}A^{[1]T} / m$
-- $db^{[2]} = np.sum(dZ^{[2]}, axis=1, keepdims=True) / m$
+- $db^{[2]} = \frac{1}{m} np.sum(dZ^{[2]}, axis=1, keepdims=True)$
 - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}{'}(Z^{[1]})$
   - $*$ is an elementwise product 
 - $dW^{[1]} = dZ^{[1]}X^T / m$
-- $db^{[1]} = np.sum(dZ^{[1]}, axis=1, keepdims=True) / m$
+- $db^{[1]} = \frac{1}{m} np.sum(dZ^{[1]}, axis=1, keepdims=True)$
