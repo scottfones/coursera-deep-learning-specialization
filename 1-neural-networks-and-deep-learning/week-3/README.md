@@ -233,10 +233,10 @@ Formulas for computing derivatives
   - $dW^{[2]} = \frac{1}{m} dZ^{[2]}A^{[1]T}$
   - $db^{[2]} = \frac{1}{m} np.sum(dZ^{[2]}, axis=1, keepdims=True)$
     - keepdims prevents a rank 1 vector as output
-  - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}' (Z^{[1]})$ 
+  - $dZ^{[1]} = W^{[2]T}dZ^{[2]} * g^{[1]}{'} (Z^{[1]})$ 
     - $*$ is an elementwise product
       - On either side is an $(n^{[1]} × m)$ matrix
-  - $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^T}$
+  - $dW^{[1]} = \frac{1}{m} dZ^{[1]}X^T$
   - $db^{[1]} = \frac{1}{m} np.sum(dZ^{[1]}, axis=1, keepdims=True)$
     - $(n^{[1]} × 1)$ matrix
 
