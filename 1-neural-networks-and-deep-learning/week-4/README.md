@@ -60,3 +60,39 @@ Single Training Example
     - $z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]}$ 
     - $a^{[l]} = g^{[l]}(z^{[l]})$
     
+Vectorized Example
+
+- Given a matrix of training input $X$
+  - Layer 1 
+    - $Z^{[1]} = W^{[1]}X + b^{[1]}$ 
+      - $X = A^{[0]}$
+    - $A^{[1]} = g^{[1]}(Z^{[1]})$
+  - Layer 2 
+    - $Z^{[2]} = W^{[2]}A^{[1]} + b^{[2]}$ 
+    - $A^{[2]} = g^{[2]}(Z^{[2]})$
+  - Output Layer
+    - $Z^{[L]} = W^{[L]}a^{[L-1]} + b^{[L]}$ 
+    - $A^{[L]} = \hat{Y} = g^{[L]}(z^{[L]})$
+
+### Getting Matrix Dimensions Right 
+
+Dimensions 
+
+$W^{[l]}$
+  - $W^{[l]} = (n^{[l]} × n^{[l-1]}$
+$b^{[l]}$
+  - $b^{[l]} = (n^{[l]} × 1)$
+$a^{[l]}$ and $z^{[l]}$
+  - $a^{[l]} = z^{[l]} = (n^{[l]} × 1)$
+$A^{[l]}$ and $Z^{[l]}$
+  - $A^{[l]} = Z^{[l]} = (n^{[l]} × m)$
+    - If $l = 0$
+      - $A^{[0]} = X = Z^{[l]} = (n^{[0]} × m)$
+$dW^{[l]}$
+  - $dW^{[l]} = (n^{[l]} × n^{[l-1]}$
+$db^{[l]}$
+  - $db^{[l]} = (n^{[l]} × 1)$
+$dA^{[l]}$ and $dZ^{[l]}$
+  - $A^{[l]} = Z^{[l]} = (n^{[l]} × m)$
+
+
