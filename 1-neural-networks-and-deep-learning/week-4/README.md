@@ -41,3 +41,22 @@ Layer Weights
 Layer Bias 
 
 - A $b$ with a superscript, lowercase $l$, $b^{[l]}$
+
+### Forward Propagation in a Deep Network 
+
+Single Training Example
+
+- Given a single input $x$
+  - Layer 1 
+    - $z^{[1]} = W^{[1]}x + b^{[1]}$ 
+    - $a^{[1]} = g^{[1]}(z^{[1]})$
+  - Layer 2
+    - $z^{[2]} = W^{[2]}a^{[1]} + b^{[2]}$ 
+    - $a^{[2]} = g^{[2]}(z^{[2]})$
+  - Output Layer
+    - $z^{[L]} = W^{[L]}a^{[L-1]} + b^{[L]}$ 
+    - $a^{[L]} = \hat{y} = g^{[L]}(z^{[L]})$
+  - General Equation for Layer $l$
+    - $z^{[l]} = W^{[l]}a^{[l-1]} + b^{[l]}$ 
+    - $a^{[l]} = g^{[l]}(z^{[l]})$
+    
